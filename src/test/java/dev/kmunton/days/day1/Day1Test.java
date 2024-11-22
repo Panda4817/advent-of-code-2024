@@ -10,14 +10,14 @@ class Day1Test {
     private static Day1 day1;
 
     @Test
-    void part1() {
+    void part1_success() {
         List<String> input = List.of();
         day1 =  new Day1(input);
         assertEquals(-1L, day1.part1());
     }
 
     @Test
-    void part2() {
+    void part2_success() {
         List<String> input = List.of();
         day1 =  new Day1(input);
         assertEquals(-1L, day1.part2());

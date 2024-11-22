@@ -9,12 +9,12 @@ public class DefaultDayTest {
     private final DefaultDay day = new DefaultDay();
 
     @Test
-    void part1() {
+    void part1_success() {
         assertEquals(-1, day.part1());
     }
 
     @Test
-    void part2() {
+    void part2_success() {
         assertEquals(-1, day.part2());
     }
 }
