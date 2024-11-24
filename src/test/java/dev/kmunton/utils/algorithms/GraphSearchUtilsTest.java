@@ -368,22 +368,23 @@ class GraphSearchUtilsTest {
   @Test
   void findLongestPathDirected_largeDAG_returnsLongestPath() {
     // Large DAG:
-    // A --1--> B --1--> C --1--> D
-    // A --1--> F --1--> G --1--> H --1--> E
-    // Longest path should be A -> F -> G -> H -> E
+    // A --1--> B --1--> C --1--> D --1--> E
+    // A --1--> F --1--> G --1--> H --1--> I --1--> E
+    // Longest path should be A -> F -> G -> H -> I -> E
     Map<String, Map<String, Integer>> graph = new HashMap<>();
     graph.put("A", Map.of("B", 1, "F", 1));
     graph.put("B", Map.of("C", 1));
     graph.put("C", Map.of("D", 1));
-    graph.put("D", Map.of());
+    graph.put("D", Map.of("E", 1));
     graph.put("F", Map.of("G", 1));
     graph.put("G", Map.of("H", 1));
-    graph.put("H", Map.of("E", 1));
+    graph.put("H", Map.of("I", 1));
+    graph.put("I", Map.of("E", 1));
     graph.put("E", Map.of());
 
     List<String> longestPath = GraphSearchUtils.findLongestPathDirected("A", "E", graph);
 
-    assertEquals(List.of("A", "F", "G", "H", "E"), longestPath);
+    assertEquals(List.of("A", "F", "G", "H", "I", "E"), longestPath);
   }
 
   @Test
