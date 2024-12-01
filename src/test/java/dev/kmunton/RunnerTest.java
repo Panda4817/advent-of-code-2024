@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-public class RunnerTest {
+class RunnerTest {
 
     private static final LogCaptor LOG_CAPTOR_RUNNER = LogCaptor.forClass(Runner.class);
     private static final LogCaptor LOG_CAPTOR_DEFAULT_DAY = LogCaptor.forClass(DefaultDay.class);
@@ -31,14 +31,14 @@ public class RunnerTest {
     @ParameterizedTest
     @ValueSource(strings = {"hello", "", "-1", "26"})
     void mapDayToClass_incorrectInput_throwDayException(String input) {
-        Day obj = Runner.mapDayToClass(input);
+        Day<Long, Long> obj = Runner.mapDayToClass(input);
 
         assertEquals(DefaultDay.class, obj.getClass());
     }
 
     @Test
     void mapDayToClass_correctInput_returnDay() {
-        Day obj = Runner.mapDayToClass("1");
+        Day<Long, Long> obj = Runner.mapDayToClass("1");
 
         assertEquals(Day1.class, obj.getClass());
     }
@@ -85,7 +85,7 @@ public class RunnerTest {
         String resource = "1.txt";
         var data = Runner.loadData(resource, getClass());
 
-        assertEquals(List.of("a", "b", "c", "d", "e"), data);
+        assertEquals(List.of("1   1", "2   2", "3   3", "4   4", "5   5"), data);
     }
 
     @Test

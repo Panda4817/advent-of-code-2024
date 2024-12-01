@@ -11,15 +11,27 @@ class Day1Test {
 
     @Test
     void part1_success() {
-        List<String> input = List.of();
+        List<String> input = """
+                3   4
+                4   3
+                2   5
+                1   3
+                3   9
+                3   3""".lines().toList();
         day1 =  new Day1(input);
-        assertEquals(-1L, day1.part1());
+        assertEquals(11L, day1.part1());
     }
 
     @Test
     void part2_success() {
-        List<String> input = List.of();
+        List<String> input = """
+                3   4
+                4   3
+                2   5
+                1   3
+                3   9
+                3   3""".lines().toList();
         day1 =  new Day1(input);
-        assertEquals(-1L, day1.part2());
+        assertEquals(31L, day1.part2());
     }
 }
