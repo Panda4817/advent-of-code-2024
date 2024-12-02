@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class Day1Test {
 
-    private static Day1 day1;
+    private static Day1 day;
 
     @Test
     void part1_success() {
@@ -18,8 +18,8 @@ class Day1Test {
                 1   3
                 3   9
                 3   3""".lines().toList();
-        day1 =  new Day1(input);
-        assertEquals(11L, day1.part1());
+        day =  new Day1(input);
+        assertEquals(11L, day.part1());
     }
 
     @Test
@@ -31,7 +31,7 @@ class Day1Test {
                 1   3
                 3   9
                 3   3""".lines().toList();
-        day1 =  new Day1(input);
-        assertEquals(31L, day1.part2());
+        day =  new Day1(input);
+        assertEquals(31L, day.part2());
     }
 }
