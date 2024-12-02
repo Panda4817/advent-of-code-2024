@@ -51,12 +51,8 @@ public class Day2 implements Day<Long, Long> {
         (l1, l2) -> {
           long diff = abs(l1 - l2);
           if (diff < 1 || diff > 3) {
-            return -2; // Level difference is not 1, 2 or 3
+            return 0; // Level difference is not 1, 2 or 3
           }
-          if (l1.equals(l2)) {
-            return 0; // Levels not increasing or decreasing
-          }
-
           if (l1 > l2) {
             return -1; // Levels are decreasing
           }
